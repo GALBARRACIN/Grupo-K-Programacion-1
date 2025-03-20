@@ -6,4 +6,3 @@
 - Agustin Miguel Correnti Reinoso
 - Gonzalo Nahuel Albarracin
 - Nicole Solagne Martínez Arias
-
