@@ -1,0 +1,21 @@
+# Archivos de bases de datos
+/backend/DB/*.sqlite
+/backend/DB/*.db
+
+# Entornos virtuales
+venv/
+.env
+
+# Caché de Python
+**/__pycache__/
+*.pyc
+*.pyo
+
+
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.db
