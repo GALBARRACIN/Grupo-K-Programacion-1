@@ -1,2 +1,8 @@
 flask
 python-dotenv
+
+#Para dps
+
+#Flask-JWT-Extended
+#Flask-SQLAlchemy
+#marshmallow
