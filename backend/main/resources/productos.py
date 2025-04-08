@@ -1,34 +1,57 @@
 from flask_restful import Resource
 from flask import request
-
-PRODUCTOS = {
-    1: {"nombre": "Empanada", "precio": 200},
-    2: {"nombre": "Pizza", "precio": 1200}
-}
+from .. import db
+from main.models import ProductoModel
 
 class Productos(Resource):
     def get(self):
-        return PRODUCTOS
+        productos = ProductoModel.query.all()
+        return [p.to_json() for p in productos], 200
 
     def post(self):
         data = request.get_json()
-        new_id = max(PRODUCTOS.keys()) + 1
-        PRODUCTOS[new_id] = data
-        return {"mensaje": "Producto creado", "id": new_id}, 201
+
+        nuevo_producto = ProductoModel(
+            nombre=data.get("nombre"),
+            descripcion=data.get("descripcion"),
+            precio=data.get("precio"),
+            stock=data.get("stock", 0)
+        )
+
+        db.session.add(nuevo_producto)
+        db.session.commit()
+
+        return {
+            "mensaje": "Producto creado exitosamente",
+            "producto": nuevo_producto.to_json()
+        }, 201
 
 class Producto(Resource):
     def get(self, id):
-        return PRODUCTOS.get(id, {"error": "Producto no encontrado"}), 200
+        producto = ProductoModel.query.get(id)
+        if producto:
+            return producto.to_json(), 200
+        return {"error": "Producto no encontrado"}, 404
 
     def put(self, id):
+        producto = ProductoModel.query.get(id)
+        if not producto:
+            return {"error": "Producto no encontrado"}, 404
+
         data = request.get_json()
-        if id in PRODUCTOS:
-            PRODUCTOS[id].update(data)
-            return {"mensaje": f"Producto {id} editado"}
-        return {"error": "Producto no encontrado"}, 404
+        producto.nombre = data.get("nombre", producto.nombre)
+        producto.descripcion = data.get("descripcion", producto.descripcion)
+        producto.precio = data.get("precio", producto.precio)
+        producto.stock = data.get("stock", producto.stock)
+
+        db.session.commit()
+        return {"mensaje": f"Producto {id} editado"}, 200
 
     def delete(self, id):
-        if id in PRODUCTOS:
-            del PRODUCTOS[id]
-            return {"mensaje": f"Producto {id} eliminado"}
-        return {"error": "Producto no encontrado"}, 404
+        producto = ProductoModel.query.get(id)
+        if not producto:
+            return {"error": "Producto no encontrado"}, 404
+
+        db.session.delete(producto)
+        db.session.commit()
+        return {"mensaje": f"Producto {id} eliminado"}, 200

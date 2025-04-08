@@ -1,34 +1,57 @@
 from flask_restful import Resource
 from flask import request
-
-USUARIOS = {
-    1: {"nombre": "Agus", "email": "agus@mail.com"},
-    2: {"nombre": "Gonza", "email": "gonza@mail.com"}
-}
+from .. import db
+from main.models import UsuarioModel
 
 class Usuarios(Resource):
     def get(self):
-        return USUARIOS
+        usuarios = UsuarioModel.query.all()
+        return [u.to_json() for u in usuarios], 200
 
     def post(self):
         data = request.get_json()
-        new_id = max(USUARIOS.keys()) + 1
-        USUARIOS[new_id] = data
-        return {"mensaje": "Usuario creado", "id": new_id}, 201
+
+        nuevo_usuario = UsuarioModel(
+            nombre=data.get("nombre"),
+            email=data.get("email"),
+            telefono=data.get("telefono"),
+            direccion=data.get("direccion")
+        )
+
+        db.session.add(nuevo_usuario)
+        db.session.commit()
+
+        return {
+            "mensaje": "Usuario creado exitosamente",
+            "usuario": nuevo_usuario.to_json()
+        }, 201
 
 class Usuario(Resource):
     def get(self, id):
-        return USUARIOS.get(id, {"error": "Usuario no encontrado"}), 200
+        usuario = UsuarioModel.query.get(id)
+        if usuario:
+            return usuario.to_json(), 200
+        return {"error": "Usuario no encontrado"}, 404
 
     def put(self, id):
+        usuario = UsuarioModel.query.get(id)
+        if not usuario:
+            return {"error": "Usuario no encontrado"}, 404
+
         data = request.get_json()
-        if id in USUARIOS:
-            USUARIOS[id].update(data)
-            return {"mensaje": f"Usuario {id} editado"}
-        return {"error": "Usuario no encontrado"}, 404
+        usuario.nombre = data.get("nombre", usuario.nombre)
+        usuario.email = data.get("email", usuario.email)
+        usuario.telefono = data.get("telefono", usuario.telefono)
+        usuario.direccion = data.get("direccion", usuario.direccion)
+
+        db.session.commit()
+        return {"mensaje": f"Usuario {id} editado"}, 200
 
     def delete(self, id):
-        if id in USUARIOS:
-            del USUARIOS[id]
-            return {"mensaje": f"Usuario {id} eliminado o suspendido"}
-        return {"error": "Usuario no encontrado"}, 404
+        usuario = UsuarioModel.query.get(id)
+        if not usuario:
+            return {"error": "Usuario no encontrado"}, 404
+
+        db.session.delete(usuario)
+        db.session.commit()
+        return {"mensaje": f"Usuario {id} eliminado o suspendido"}, 200

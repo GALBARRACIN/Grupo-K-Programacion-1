@@ -1,17 +1,26 @@
 from flask_restful import Resource
 from flask import request
-
-VALORACIONES = {
-    1: {"producto_id": 1, "puntuacion": 5, "comentario": "Muy rico"},
-    2: {"producto_id": 2, "puntuacion": 3, "comentario": "Normal"}
-}
+from .. import db
+from main.models import ValoracionModel
 
 class Valoraciones(Resource):
     def get(self):
-        return VALORACIONES
+        valoraciones = ValoracionModel.query.all()
+        return [v.to_json() for v in valoraciones], 200
 
     def post(self):
         data = request.get_json()
-        new_id = max(VALORACIONES.keys()) + 1
-        VALORACIONES[new_id] = data
-        return {"mensaje": "Valoración agregada", "id": new_id}, 201
+
+        nueva_valoracion = ValoracionModel(
+            producto_id=data.get("producto_id"),
+            puntuacion=data.get("puntuacion"),
+            comentario=data.get("comentario")
+        )
+
+        db.session.add(nueva_valoracion)
+        db.session.commit()
+
+        return {
+            "mensaje": "Valoración agregada exitosamente",
+            "valoracion": nueva_valoracion.to_json()
+        }, 201
