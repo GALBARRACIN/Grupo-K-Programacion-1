@@ -9,10 +9,6 @@ load_dotenv()
 app = create_app()
 app.app_context().push()
 
-# Registrar rutas
-from main.routes import register_routes
-register_routes(app)
-
 # Ejecutar
 if __name__ == '__main__':
     db.create_all()
