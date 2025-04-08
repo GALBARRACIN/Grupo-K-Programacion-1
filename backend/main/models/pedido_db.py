@@ -1,6 +1,7 @@
 from .. import db
 
 class Pedido(db.Model):
+    __tablename__ = "pedido"
     id = db.Column(db.Integer, primary_key=True)
     cliente = db.Column(db.String(100), nullable=False)
     producto = db.Column(db.String(100), nullable=False)

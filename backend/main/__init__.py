@@ -10,24 +10,17 @@ api = Api()
 db = SQLAlchemy()
 
 def create_app():
-    load_dotenv()
-
+    
     app = Flask(__name__)
 
-    db_path = os.getenv('DATABASE_PATH')
-    db_name = os.getenv('DATABASE_NAME')
+    load_dotenv()  # Carga variables del .env
 
-    if not db_path or not db_name:
-        raise ValueError("Faltan las variables DATABASE_PATH o DATABASE_NAME en el entorno")
 
-    full_db_path = os.path.join(db_path, db_name)
+    if not os.path.exists(os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')):
+        os.mknod(os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME'))
 
-    if not os.path.exists(full_db_path):
-        open(full_db_path, 'a').close()
-
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{full_db_path}'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')
     db.init_app(app)
 
     # Cargar los recursos
@@ -45,7 +38,11 @@ def create_app():
 
     api.add_resource(resources.ValoracionesResource, "/valoraciones")
     
-    api.add_resource(resources.LoginResource, "/login")
-    api.add_resource(resources.LogoutResource, "/logout")
+    api.add_resource(resources.LoginResource, "/login/")
+    api.add_resource(resources.LogoutResource, "/logout/")
+
+    # Inicializar la API
+    
+    api.init_app(app)
 
     return app

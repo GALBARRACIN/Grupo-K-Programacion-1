@@ -5,13 +5,13 @@ from main.models import NotificacionModel
 
 class Notificaciones(Resource):
     def get(self):
-        notificaciones = Notificacion.query.all()
+        notificaciones = NotificacionModel.query.all()
         return [n.to_dict() for n in notificaciones], 200
 
     def post(self):
         data = request.get_json()
 
-        nueva = Notificacion(
+        nueva = NotificacionModel(
             usuario_id=data.get("usuario_id"),
             tipo=data.get("tipo"),
             mensaje=data.get("mensaje"),
