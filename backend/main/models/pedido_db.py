@@ -1,18 +1,21 @@
 from .. import db
 
 class Pedido(db.Model):
-    __tablename__ = "pedido"
+    __tablename__ = 'pedido'
     id = db.Column(db.Integer, primary_key=True)
-    cliente = db.Column(db.String(100), nullable=False)
-    producto = db.Column(db.String(100), nullable=False)
-    cantidad = db.Column(db.Integer, nullable=False)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=True)
+    fecha = db.Column(db.DateTime, default=db.func.current_timestamp())
     estado = db.Column(db.String(50), default="pendiente")
-
+    total = db.Column(db.Float, default=0.0)  # Asegúrate que esta columna exista
+    
+    items = db.relationship("ItemPedido", back_populates="pedido", cascade="all, delete-orphan")
+    
     def to_json(self):
         return {
-            "id": self.id,
-            "cliente": self.cliente,
-            "producto": self.producto,
-            "cantidad": self.cantidad,
-            "estado": self.estado
+            'id': self.id,
+            'usuario_id': self.usuario_id,
+            'fecha': self.fecha.isoformat() if self.fecha else None,
+            'estado': self.estado,
+            'total': self.total,
+            'items': [item.to_json() for item in self.items]
         }

@@ -1,27 +1,31 @@
+# notificaciones.py
 from flask_restful import Resource
-from flask import request
+from flask import request, jsonify
+from main.models.notificacion_db import Notificacion as NotificacionModel
 from .. import db
-from main.models import NotificacionModel
 
 class Notificaciones(Resource):
     def get(self):
         notificaciones = NotificacionModel.query.all()
-        return [n.to_dict() for n in notificaciones], 200
-
+        return jsonify([n.to_json() for n in notificaciones])
+    
     def post(self):
         data = request.get_json()
-
-        nueva = NotificacionModel(
-            usuario_id=data.get("usuario_id"),
-            tipo=data.get("tipo"),
-            mensaje=data.get("mensaje"),
-            leida=data.get("leida", False)  # opcional, por defecto False
-        )
-
-        db.session.add(nueva)
-        db.session.commit()
-
-        return {
-            "mensaje": "Notificación creada exitosamente",
-            "notificacion": nueva.to_dict()
-        }, 201
+        
+        # Validación simple
+        if not data or 'usuario_id' not in data or 'mensaje' not in data:
+            return {'message': 'usuario_id y mensaje son requeridos'}, 400
+            
+        try:
+            notificacion = NotificacionModel(
+                usuario_id=data['usuario_id'],
+                mensaje=data['mensaje'],
+                tipo=data.get('tipo', 'info'),  # Valor por defecto
+                leida=False
+            )
+            db.session.add(notificacion)
+            db.session.commit()
+            return notificacion.to_json(), 201
+        except Exception as e:
+            db.session.rollback()
+            return {'message': str(e)}, 500
