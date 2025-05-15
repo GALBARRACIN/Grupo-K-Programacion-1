@@ -1,7 +1,7 @@
 # notificaciones.py
 from flask_restful import Resource
 from flask import request, jsonify
-from main.models.notificacion_db import Notificacion as NotificacionModel
+from main.models import NotificacionModel
 from .. import db
 
 class Notificaciones(Resource):

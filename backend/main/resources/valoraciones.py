@@ -1,6 +1,6 @@
 from flask_restful import Resource
 from flask import request, jsonify, abort
-from main.models.valoracion_db import Valoracion as ValoracionModel
+from main.models import ValoracionModel
 from .. import db
 
 class Valoraciones(Resource):

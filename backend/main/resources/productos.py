@@ -1,6 +1,6 @@
 from flask_restful import Resource
 from flask import request, jsonify, abort
-from main.models.producto_db import Producto as ProductoModel
+from main.models import ProductoModel
 from .. import db
 
 class Productos(Resource):

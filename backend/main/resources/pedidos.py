@@ -1,8 +1,8 @@
 from flask_restful import Resource
 from flask import request, jsonify, abort
 from main.models import ProductoModel, ItemPedidoModel, PedidoModel
-#from main.models.pedido_db import Pedido as PedidoModel
-#from main.models.item_pedido_db import ItemPedidoModel
+#from main.models.pedidos_db import Pedido as PedidoModel
+#from main.models.item_pedidos_db import ItemPedidoModel
 from .. import db
 
 class Pedidos(Resource):

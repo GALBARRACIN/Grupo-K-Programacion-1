@@ -1,6 +1,6 @@
 from .. import db
 
-class ItemPedido(db.Model):
+class ItemsPedidos(db.Model):
     __tablename__ = 'item_pedido'
     id = db.Column(db.Integer, primary_key=True)
     pedido_id = db.Column(db.Integer, db.ForeignKey('pedido.id'), nullable=False)
@@ -8,9 +8,9 @@ class ItemPedido(db.Model):
     cantidad = db.Column(db.Integer, nullable=False)
     precio_unitario = db.Column(db.Float, nullable=False)
     
-    # Relaciones (modificadas)
-    pedido = db.relationship("Pedido", back_populates="items")
-    producto = db.relationship("Producto")
+    # Relaciones
+    pedido = db.relationship("Pedidos", back_populates="items")
+    producto = db.relationship("Productos", back_populates="items_pedido")
     
     def to_json(self):
         return {

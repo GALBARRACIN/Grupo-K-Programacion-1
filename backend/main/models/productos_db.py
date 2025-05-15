@@ -1,6 +1,6 @@
 from .. import db
 
-class Producto(db.Model):
+class Productos(db.Model):
     __tablename__ = 'producto'
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(100), nullable=False)
@@ -8,8 +8,9 @@ class Producto(db.Model):
     precio = db.Column(db.Float, nullable=False)
     stock = db.Column(db.Integer, default=0)
     
-    # Relación: un producto puede tener muchas valoraciones
-    valoraciones = db.relationship("Valoracion", backref="producto", lazy=True)
+    # Relaciones
+    valoraciones = db.relationship('Valoraciones', back_populates='producto', cascade="all, delete-orphan")
+    items_pedido = db.relationship('ItemsPedidos', back_populates='producto', cascade='all, delete-orphan')
 
     def to_json(self):
         return {
@@ -22,7 +23,7 @@ class Producto(db.Model):
     
     @staticmethod
     def from_json(json_data):
-        return Producto(
+        return Productos(
             id=json_data.get('id'),
             nombre=json_data.get('nombre'),
             descripcion=json_data.get('descripcion'),

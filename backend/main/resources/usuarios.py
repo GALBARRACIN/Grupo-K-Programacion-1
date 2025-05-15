@@ -1,6 +1,6 @@
 from flask_restful import Resource
 from flask import request, jsonify, abort
-from main.models.usuario_db import Usuario as UsuarioModel
+from main.models import UsuarioModel
 from .. import db
 
 class Usuarios(Resource):

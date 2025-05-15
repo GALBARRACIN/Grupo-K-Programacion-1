@@ -1,7 +1,7 @@
 # auth.py
 from flask_restful import Resource
 from flask import request, jsonify
-from main.models.usuario_db import Usuario as UsuarioModel
+from main.models import UsuarioModel
 
 class Login(Resource):
     def post(self):

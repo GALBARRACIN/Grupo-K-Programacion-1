@@ -1,6 +1,6 @@
 from .. import db
 
-class Usuario(db.Model):
+class Usuarios(db.Model):
     __tablename__ = 'usuario'
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(100), nullable=False)
@@ -8,10 +8,10 @@ class Usuario(db.Model):
     telefono = db.Column(db.String(20))
     direccion = db.Column(db.String(255))
     
-    # Relación: un usuario puede tener muchas notificaciones
-    notificaciones = db.relationship("Notificacion", backref="usuario", lazy=True)
-    # Se puede agregar, opcionalmente, una relación con pedidos:
-    # pedidos = db.relationship("Pedido", backref="usuario", lazy=True)
+    # Relaciones
+    notificaciones = db.relationship("Notificaciones", back_populates="usuario", cascade="all, delete-orphan")
+    pedidos = db.relationship("Pedidos", back_populates="usuario", cascade="all, delete-orphan")
+    valoraciones = db.relationship("Valoraciones", back_populates="usuario", cascade="all, delete-orphan")
     
     def to_json(self):
         return {
@@ -24,7 +24,7 @@ class Usuario(db.Model):
     
     @staticmethod
     def from_json(json_data):
-        return Usuario(
+        return Usuarios(
             id=json_data.get('id'),
             nombre=json_data.get('nombre'),
             email=json_data.get('email'),
