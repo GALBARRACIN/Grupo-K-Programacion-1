@@ -6,8 +6,31 @@ from .. import db
 class Usuarios(Resource):
     def get(self):
         try:
-            usuarios = UsuarioModel.query.all()
-            return jsonify([u.to_json() for u in usuarios])
+            # Obtener parámetros de paginación
+            page = request.args.get('page', default=1, type=int)
+            per_page = request.args.get('per_page', default=10, type=int)
+            nombre = request.args.get('nombre', type=str)
+
+            query = UsuarioModel.query
+
+            # Filtro opcional por nombre
+            if nombre:
+                query = query.filter(UsuarioModel.nombre.ilike(f"%{nombre}%"))
+
+            # Total antes de aplicar limit/offset
+            total = query.count()
+
+            # Aplicar paginación
+            usuarios = query.offset((page - 1) * per_page).limit(per_page).all()
+
+            return {
+                'total': total,
+                'page': page,
+                'per_page': per_page,
+                'total_pages': (total + per_page - 1) // per_page,
+                'data': [u.to_json() for u in usuarios]
+            }, 200
+
         except Exception as e:
             abort(500, description=str(e))
     

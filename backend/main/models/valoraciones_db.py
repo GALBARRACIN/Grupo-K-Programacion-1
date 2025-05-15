@@ -16,15 +16,17 @@ class Valoraciones(db.Model):
         return {
             'id': self.id,
             'producto_id': self.producto_id,
+            'usuario_id': self.usuario_id,
             'puntuacion': self.puntuacion,
             'comentario': str(self.comentario) if self.comentario else ''
         }
-    
+
     @staticmethod
     def from_json(json_data):
         return Valoraciones(
             id=json_data.get('id'),
             producto_id=json_data.get('producto_id'),
+            usuario_id=json_data.get('usuario_id'), 
             puntuacion=json_data.get('puntuacion'),
             comentario=json_data.get('comentario')
         )

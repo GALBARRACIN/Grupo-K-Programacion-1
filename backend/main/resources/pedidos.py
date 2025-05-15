@@ -7,9 +7,32 @@ from .. import db
 
 class Pedidos(Resource):
     def get(self):
-        pedidos = PedidoModel.query.all()
-        return jsonify([p.to_json() for p in pedidos])
-    
+        # Soporte para filtrado por usuario_id y estado
+        usuario_id = request.args.get('usuario_id', type=int)
+        estado = request.args.get('estado')
+
+        # Paginación
+        page = request.args.get('page', default=1, type=int)
+        per_page = request.args.get('per_page', default=10, type=int)
+
+        query = PedidoModel.query
+
+        if usuario_id:
+            query = query.filter_by(usuario_id=usuario_id)
+        if estado:
+            query = query.filter_by(estado=estado)
+
+        total = query.count()
+        pedidos = query.offset((page - 1) * per_page).limit(per_page).all()
+
+        return {
+            'total': total,
+            'page': page,
+            'per_page': per_page,
+            'total_pages': (total + per_page - 1) // per_page,
+            'data': [p.to_json() for p in pedidos]
+        }
+
     def post(self):
         json_data = request.get_json(force=True)
         

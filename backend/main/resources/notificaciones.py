@@ -6,8 +6,29 @@ from .. import db
 
 class Notificaciones(Resource):
     def get(self):
-        notificaciones = NotificacionModel.query.all()
-        return jsonify([n.to_json() for n in notificaciones])
+        usuario_id = request.args.get('usuario_id', type=int)
+        tipo = request.args.get('tipo')
+
+        page = request.args.get('page', default=1, type=int)
+        per_page = request.args.get('per_page', default=10, type=int)
+
+        query = NotificacionModel.query
+
+        if usuario_id:
+            query = query.filter_by(usuario_id=usuario_id)
+        if tipo:
+            query = query.filter_by(tipo=tipo)
+
+        total = query.count()
+        notificaciones = query.offset((page - 1) * per_page).limit(per_page).all()
+
+        return {
+            'total': total,
+            'page': page,
+            'per_page': per_page,
+            'total_pages': (total + per_page - 1) // per_page,
+            'data': [n.to_json() for n in notificaciones]
+        }
     
     def post(self):
         data = request.get_json()

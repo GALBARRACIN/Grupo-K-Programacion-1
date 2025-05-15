@@ -5,17 +5,33 @@ from .. import db
 
 class Productos(Resource):
     def get(self):
-        categoria = request.args.get('categoria')
-        query = ProductoModel.query
-        
-        if categoria:
-            query = query.filter_by(categoria=categoria)
-        
-        return jsonify([p.to_json() for p in query.all()])
+        try:
+            # Obtener filtros y paginación
+            categoria = request.args.get('categoria')
+            page = request.args.get('page', default=1, type=int)
+            per_page = request.args.get('per_page', default=10, type=int)
+
+            query = ProductoModel.query
+
+            if categoria:
+                query = query.filter_by(categoria=categoria)
+
+            total = query.count()
+            productos = query.offset((page - 1) * per_page).limit(per_page).all()
+
+            return {
+                'total': total,
+                'page': page,
+                'per_page': per_page,
+                'total_pages': (total + per_page - 1) // per_page,
+                'data': [p.to_json() for p in productos]
+            }, 200
+        except Exception as e:
+            abort(500, description=str(e))
     
     def post(self):
         data = request.get_json()
-        required = ['nombre', 'precio', 'categoria']
+        required = ['nombre', 'precio', 'descripcion']
         missing = [f for f in required if f not in data]
         if missing:
             abort(400, description=f"Faltan campos: {', '.join(missing)}")
