@@ -19,7 +19,7 @@ jwt = JWTManager(app)
 from main.auth.routes import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)
 
-# Empuja el contexto de la aplicación para evitar problemas en operaciones fuera de una request
+# Empujar el contexto de la aplicación para evitar problemas en operaciones fuera de una request
 app.app_context().push()
 
 # Ejecutar la aplicación

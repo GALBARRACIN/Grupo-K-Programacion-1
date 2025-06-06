@@ -1,0 +1,8 @@
+Bienvenido, {{usuario.nombre}}!
+
+Gracias por registrarte en el sistema.
+
+Con nuestro servicio podrás:
+- Acceder a tu historial de pedidos
+- Consultar tus notificaciones
+- Realizar pedidos en línea
