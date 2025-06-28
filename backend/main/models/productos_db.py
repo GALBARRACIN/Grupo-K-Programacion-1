@@ -7,6 +7,7 @@ class Productos(db.Model):
     descripcion = db.Column(db.String(255))
     precio = db.Column(db.Float, nullable=False)
     stock = db.Column(db.Integer, default=0)
+    estado = db.Column(db.String(50), nullable=False, default='activo')
     
     # Relaciones
     valoraciones = db.relationship('Valoraciones', back_populates='producto', cascade="all, delete-orphan")

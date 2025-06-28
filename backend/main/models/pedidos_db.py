@@ -1,4 +1,5 @@
 from .. import db
+from datetime import datetime
 
 class Pedidos(db.Model):
     __tablename__ = 'pedido'
@@ -21,3 +22,23 @@ class Pedidos(db.Model):
             'total': self.total,
             'items': [item.to_json() for item in self.items]
         }
+    
+    def to_json_completo(self):
+        # Opción para agregar más info anidada
+        json_data = self.to_json()
+        if self.usuario:
+            json_data['usuario'] = {
+                'id': self.usuario.id,
+                'nombre': getattr(self.usuario, 'nombre', None),
+                'email': getattr(self.usuario, 'email', None)
+            }
+        return json_data
+
+    @staticmethod
+    def from_json(data):
+        return Pedidos(
+            usuario_id=data.get('usuario_id'),
+            fecha=data.get('fecha') or datetime.utcnow(),
+            estado=data.get('estado', 'pendiente'),
+            total=data.get('total', 0.0)
+        )

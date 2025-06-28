@@ -1,54 +1,53 @@
 from .. import db
-from werkzeug.security import generate_password_hash, check_password_hash # se utiliza para gestionar contraseñas de manera segura en aplicaciones Flask
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class Usuarios(db.Model):
     __tablename__ = 'usuario'
+
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     telefono = db.Column(db.String(20))
     direccion = db.Column(db.String(255))
-    password_hash = db.Column(db.String(128), nullable=False)  # Para almacenar la contraseña de manera segura
-    rol = db.Column(db.String(50), default='user')  # Campo para distinguir el rol del usuario (e.g., "user", "admin")
+    _password_hash = db.Column("password_hash", db.String(128), nullable=False)
+    rol = db.Column(db.String(50), default='user')
 
-    # Relaciones (ajusta según tu aplicación)
+    # Relaciones
     notificaciones = db.relationship("Notificaciones", back_populates="usuario", cascade="all, delete-orphan")
     pedidos = db.relationship("Pedidos", back_populates="usuario", cascade="all, delete-orphan")
     valoraciones = db.relationship("Valoraciones", back_populates="usuario", cascade="all, delete-orphan")
+
+    # Manejo seguro de contraseñas
+    @property
+    def contrasena_plana(self):
+        raise AttributeError("La contraseña no se puede leer directamente.")
     
-    def set_password(self, password):
-        """Genera y asigna el hash de la contraseña."""
-        self.password_hash = generate_password_hash(password)
-    
-    def validate_pass(self, password):
-        """Valida la contraseña ingresada comparándola con el hash almacenado."""
-        return check_password_hash(self.password_hash, password)
+    @contrasena_plana.setter
+    def contrasena_plana(self, contrasena):
+        self._password_hash = generate_password_hash(contrasena)
+
+    def validate_pass(self, contrasena):
+        return check_password_hash(self._password_hash, contrasena)
 
     def to_json(self):
-        """Serializa el objeto para devolverlo en un JSON."""
         return {
             'id': self.id,
             'nombre': self.nombre,
             'email': self.email,
-            'telefono': self.telefono if self.telefono else '',
-            'direccion': self.direccion if self.direccion else '',
+            'telefono': self.telefono or '',
+            'direccion': self.direccion or '',
             'rol': self.rol
         }
-    
+
     @staticmethod
     def from_json(json_data):
-        """
-        Crea una instancia de Usuarios a partir de un JSON.
-        Se espera que el JSON tenga, al menos, 'nombre', 'email' y 'password'.
-        """
         user = Usuarios(
             nombre=json_data.get('nombre'),
             email=json_data.get('email'),
             telefono=json_data.get('telefono'),
             direccion=json_data.get('direccion'),
-            rol=json_data.get('rol', 'user')  # Asigna 'user' por defecto si no se especifica
+            rol=json_data.get('rol', 'user')
         )
-        password = json_data.get('password')
-        if password:
-            user.set_password(password)
+        if json_data.get('password'):
+            user.contrasena_plana = json_data.get('password')
         return user

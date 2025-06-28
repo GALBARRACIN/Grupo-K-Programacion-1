@@ -1,7 +1,9 @@
 # Archivos de bases de datos
 /backend/DB/*.sqlite
 /backend/DB/*.db
+/backend/app_DB.sql
 *.db
+*.sql
 
 # Entornos virtuales y variables de entorno
 tutorial-env/
