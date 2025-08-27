@@ -2,8 +2,6 @@
 
 ## Integrantes:
 
-- Adriano Salvador Martinez Barbuzza
-- Agustin Miguel Correnti Reinoso
 - Gonzalo Nahuel Albarracin
 - Nicole Solagne Martínez Arias
 
@@ -18,3 +16,7 @@
 - Ejecutar boot.sh
 
 ## Front
+
+Concepto Figma: 
+
+https://www.figma.com/design/LMmDM8MZhaocbGinQQmts8/Rotiser%C3%ADa-digital-Sistema-de-pedidos?node-id=0-1&t=8F3WViVIRCD5T9uB-1
