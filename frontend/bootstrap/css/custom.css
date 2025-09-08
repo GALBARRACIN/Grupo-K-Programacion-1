@@ -1,0 +1,360 @@
+/* css/custom.css */
+
+/*=============================
+=         Color Palette        =
+=============================*/
+:root {
+  --bg-color: #E9DCC9;
+  --btn-bg: #A1866F;
+  --btn-hover: #8C6E58;
+  --btn-text: #FFFFFF;
+  --star-color: #FFD700;
+}
+
+/*=============================
+=            Base             =
+=============================*/
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/*=============================
+=           Header            =
+=============================*/
+header {
+  background-color: var(--bg-color);
+  border-bottom: 2px solid var(--btn-bg);
+}
+
+.header-container {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.header-container a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-container img {
+  max-width: 80px;
+}
+
+.header-container h1 {
+  margin: 0 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+/*=============================
+=     Global Navigation       =
+=============================*/
+.nav-horizontal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 0.75rem 2rem;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid #ccc;
+  flex-wrap: wrap;
+}
+
+.nav-horizontal a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s;
+}
+
+.nav-horizontal a.active {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.nav-horizontal .user {
+  font-weight: 500;
+  color: #555;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/*=============================
+=           Buttons           =
+=============================*/
+.btn-primary,
+.btn-submit,
+.btn-publicar {
+  background-color: var(--btn-bg) !important;
+  border-color: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+}
+
+.btn-primary:hover,
+.btn-submit:hover,
+.btn-publicar:hover {
+  background-color: var(--btn-hover) !important;
+  border-color: var(--btn-hover) !important;
+}
+
+.btn-outline-primary {
+  color: var(--btn-bg) !important;
+  border-color: var(--btn-bg) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border-color: var(--btn-bg) !important;
+}
+
+/*=============================
+=          Tables & Lists      =
+=============================*/
+.table-responsive {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
+
+table {
+  margin: 0;
+  width: 100%;
+}
+
+thead th {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border-top: none;
+}
+
+tbody tr {
+  background-color: #fff;
+}
+
+.badge {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  font-size: 0.85rem;
+  padding: 0.4em 0.7em;
+}
+
+/*=============================
+=          Card Layouts        =
+=============================*/
+.card,
+.form-box,
+.form-agregar,
+.rating-box {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/*=============================
+=         Search Bar          =
+=============================*/
+.search-bar {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+/*=============================
+=        Rating Component      =
+=============================*/
+.rating-box {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.rating-box h4 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stars input[type="radio"] {
+  display: none;
+}
+
+.stars label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.stars label:hover,
+.stars label:hover ~ label {
+  color: var(--star-color);
+}
+
+.stars input:checked ~ label {
+  color: #ccc !important;
+}
+
+.stars input:checked + label,
+.stars input:checked + label ~ label {
+  color: var(--star-color) !important;
+}
+
+/*=============================
+=       Cart & Order Items     =
+=============================*/
+.carrito-item,
+.order-list .card,
+.status-item,
+.pedido-item {
+  margin-bottom: 1rem;
+}
+
+.carrito-item,
+.pedido-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.carrito-item img,
+.pedido-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+}
+
+.carrito-item .info,
+.pedido-item .info {
+  flex: 1;
+}
+
+.carrito-item .info h5,
+.pedido-item .info h5 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.carrito-item .info p,
+.pedido-item .info p {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+/*=============================
+=      Total & Status Boxes    =
+=============================*/
+.total-box {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
+.status-circles {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.status-item {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.status-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.status-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/*=============================
+=       Form Containers         =
+=============================*/
+.form-box,
+.form-agregar {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.form-box h4,
+.form-agregar h4 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}

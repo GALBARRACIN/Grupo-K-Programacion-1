@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotiseria La Sabrosa – Menú Cliente</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-color: #E9DCC9;
+      --btn-bg: #A1866F;
+      --btn-hover: #8C6E58;
+      --btn-text: #FFFFFF;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    header {
+      background-color: var(--bg-color);
+      border-bottom: 2px solid var(--btn-bg);
+    }
+
+    .header-container {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .header-container a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .header-container img {
+      max-width: 80px;
+    }
+
+    .header-container h1 {
+      margin: 0 0 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    .nav-horizontal {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding: 0.75rem 2rem;
+      background-color: var(--bg-color);
+      border-bottom: 1px solid #ccc;
+      flex-wrap: wrap;
+    }
+
+    .nav-horizontal a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #333;
+      background-color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    .nav-horizontal a.active {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+    }
+
+    .nav-horizontal .user {
+      font-weight: 500;
+      color: #555;
+      background-color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .search-bar {
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .card img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--btn-bg);
+      border-color: var(--btn-bg);
+      color: var(--btn-text);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--btn-hover);
+      border-color: var(--btn-hover);
+      color: var(--btn-text);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="inicio.html">
+        <img src="../img/logo.png" alt="Logo Rotiseria La Sabrosa" />
+        <h1>Rotiseria La Sabrosa</h1>
+      </a>
+    </div>
+  </header>
+
+  <!-- Botones horizontales debajo del header -->
+  <nav class="nav-horizontal">
+    <a href="menu_cliente.html" class="active">Menú</a>
+    <a href="calificacion.html">Pedidos</a>
+    <a href="estado_pedido.html">Estado del pedido</a>
+    <a href="login.html">Cerrar sesión</a>
+    <div class="user">Usuario</div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Buscador -->
+    <div class="search-bar">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar productos por nombre o categoría"
+      />
+    </div>
+
+    <!-- Tarjetas de productos -->
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="../img/platillo1.jpg" alt="Platillo 1" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Milanesa con papas</h5>
+            <p class="card-text">$1200</p>
+            <button class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="../img/platillo2.jpg" alt="Platillo 2" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Empanadas surtidas</h5>
+            <p class="card-text">$850</p>
+            <button class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="../img/platillo3.jpg" alt="Platillo 3" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Tarta de verdura</h5>
+            <p class="card-text">$950</p>
+            <button class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de continuar -->
+    <div class="text-center mt-5">
+      <a href="carrito.html" class="btn btn-primary btn-lg">Ver carrito</a>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>

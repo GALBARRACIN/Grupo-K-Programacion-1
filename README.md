@@ -2,8 +2,8 @@
 
 ## Integrantes:
 
-- Gonzalo Nahuel Albarracin
-- Nicole Solagne Martínez Arias
+- Albarracin Gonzalo Nahuel 
+- Martínez Arias Solange Nicole
 
 ## Back
 

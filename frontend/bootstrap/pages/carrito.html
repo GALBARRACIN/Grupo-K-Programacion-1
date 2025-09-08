@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotiseria La Sabrosa – Carrito</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-color: #E9DCC9;
+      --btn-bg: #A1866F;
+      --btn-hover: #8C6E58;
+      --btn-text: #FFFFFF;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--bg-color);
+      border-bottom: 2px solid var(--btn-bg);
+    }
+
+    .header-container {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .header-container a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .header-container img {
+      max-width: 80px;
+    }
+
+    .header-container h1 {
+      margin: 0 0 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    .nav-horizontal {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding: 0.75rem 2rem;
+      background-color: var(--bg-color);
+      border-bottom: 1px solid #ccc;
+      flex-wrap: wrap;
+    }
+
+    .nav-horizontal a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #333;
+      background-color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    .nav-horizontal a.active {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+    }
+
+    .nav-horizontal .user {
+      font-weight: 500;
+      color: #555;
+      background-color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .carrito-item {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .carrito-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-right: 1rem;
+    }
+
+    .carrito-item .info {
+      flex: 1;
+    }
+
+    .carrito-item .info h5 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .carrito-item .info p {
+      margin: 0.25rem 0 0;
+      font-size: 0.95rem;
+    }
+
+    .total-box {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 2rem;
+    }
+
+    .btn-confirmar {
+      background-color: var(--btn-bg);
+      border-color: var(--btn-bg);
+      color: var(--btn-text);
+      margin-top: 1rem;
+    }
+
+    .btn-confirmar:hover {
+      background-color: var(--btn-hover);
+      border-color: var(--btn-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="inicio.html">
+        <img src="../img/logo.png" alt="Logo Rotiseria La Sabrosa" />
+        <h1>Rotiseria La Sabrosa</h1>
+      </a>
+    </div>
+  </header>
+
+  <!-- Navegación horizontal -->
+  <nav class="nav-horizontal">
+    <a href="menu_cliente.html">Menú</a>
+    <a href="cargar_pedido.html">Pedidos</a>
+    <a href="estado_pedido.html">Estado del pedido</a>
+    <a href="login.html">Cerrar sesión</a>
+    <div class="user">Usuario</div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+
+    <!-- Lista de productos en el carrito -->
+    <div class="carrito-item">
+      <img src="../img/platillo1.jpg" alt="Milanesa con papas" />
+      <div class="info">
+        <h5>Milanesa con papas</h5>
+        <p>Cantidad: 2</p>
+        <p>Precio: $2400</p>
+      </div>
+    </div>
+
+    <div class="carrito-item">
+      <img src="../img/platillo2.jpg" alt="Empanadas surtidas" />
+      <div class="info">
+        <h5>Empanadas surtidas</h5>
+        <p>Cantidad: 6</p>
+        <p>Precio: $1700</p>
+      </div>
+    </div>
+
+    <div class="carrito-item">
+      <img src="../img/platillo3.jpg" alt="Tarta de verdura" />
+      <div class="info">
+        <h5>Tarta de verdura</h5>
+        <p>Cantidad: 1</p>
+        <p>Precio: $950</p>
+      </div>
+    </div>
+
+    <!-- Total y botón -->
+    <div class="total-box">
+      Total: $5050
+      <div class="text-center">
+        <button class="btn btn-confirmar btn-lg">Confirmar pedido</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

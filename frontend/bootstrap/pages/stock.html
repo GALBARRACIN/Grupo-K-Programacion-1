@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rotiseria La Sabrosa – Stock</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-color: #E9DCC9;
+      --btn-bg: #A1866F;
+      --btn-hover: #8C6E58;
+      --btn-text: #FFFFFF;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--bg-color);
+      border-bottom: 2px solid var(--btn-bg);
+    }
+
+    .header-container {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .header-container a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .header-container img {
+      max-width: 80px;
+    }
+
+    .header-container h1 {
+      margin: 0 0 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    .nav-horizontal {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding: 0.75rem 2rem;
+      background-color: var(--bg-color);
+      border-bottom: 1px solid #ccc;
+      flex-wrap: wrap;
+    }
+
+    .nav-horizontal a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #333;
+      background-color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    .nav-horizontal a.active {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+    }
+
+    .nav-horizontal .user {
+      font-weight: 500;
+      color: #555;
+      background-color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .search-bar {
+      max-width: 400px;
+      margin: 0 auto 2rem;
+    }
+
+    .table-responsive {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+
+    table {
+      margin: 0;
+    }
+
+    thead th {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border-top: none;
+    }
+
+    tbody tr {
+      background-color: #ffffff;
+    }
+
+    .btn-outline-primary {
+      color: var(--btn-bg);
+      border-color: var(--btn-bg);
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border-color: var(--btn-bg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="inicio.html">
+        <img src="../img/logo.png" alt="Logo Rotiseria La Sabrosa" />
+        <h1>Rotiseria La Sabrosa</h1>
+      </a>
+    </div>
+  </header>
+
+  <!-- Navegación horizontal -->
+  <nav class="nav-horizontal">
+    <a href="dashboard_pedidos.html">Panel de pedidos</a>
+    <a href="cargar_pedido.html">Cargar pedidos</a>
+    <a href="stock.html" class="active">Stock</a>
+    <a href="gestion_clientes.html">Gestión de clientes</a>
+    <a href="login.html">Cerrar sesión</a>
+    <div class="user">Usuario</div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Buscador de insumos -->
+    <div class="search-bar">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar insumo por nombre"
+      />
+    </div>
+
+    <!-- Tabla de stock -->
+    <div class="table-responsive">
+      <table class="table align-middle mb-0">
+        <thead>
+          <tr>
+            <th scope="col">Insumo</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Unidad</th>
+            <th scope="col">Última actualización</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Carne vacuna</td>
+            <td>25</td>
+            <td>Kg</td>
+            <td>2025-09-08</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Editar</button>
+              <button class="btn btn-outline-primary btn-sm">Actualizar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Harina</td>
+            <td>10</td>
+            <td>Kg</td>
+            <td>2025-09-07</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Editar</button>
+              <button class="btn btn-outline-primary btn-sm">Actualizar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Huevos</td>
+            <td>60</td>
+            <td>Unidades</td>
+            <td>2025-09-08</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Editar</button>
+              <button class="btn btn-outline-primary btn-sm">Actualizar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>
