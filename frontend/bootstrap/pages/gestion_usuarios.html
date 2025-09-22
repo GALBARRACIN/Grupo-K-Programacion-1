@@ -58,17 +58,22 @@
       font-size: 1.5rem;
     }
 
-    .nav-horizontal {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-      padding: 0.75rem 2rem;
+    /* Navbar responsive */
+    .navbar-custom {
       background-color: var(--bg-color);
       border-bottom: 1px solid #ccc;
-      flex-wrap: wrap;
+      padding: 0.5rem 1rem;
     }
 
-    .nav-horizontal a {
+    .navbar-custom .navbar-toggler {
+      border-color: var(--btn-bg);
+    }
+
+    .navbar-custom .navbar-toggler-icon {
+      filter: invert(20%) sepia(50%) saturate(500%) hue-rotate(10deg) brightness(90%);
+    }
+
+    .navbar-custom .navbar-nav .nav-link {
       text-decoration: none;
       font-weight: 500;
       color: #333;
@@ -76,21 +81,25 @@
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      transition: background-color 0.3s;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    .nav-horizontal a.active {
+    .navbar-custom .navbar-nav .nav-link.active {
       background-color: var(--btn-bg);
       color: var(--btn-text);
     }
 
-    .nav-horizontal .user {
+    .navbar-custom .navbar-nav .user {
+      display: block;
       font-weight: 500;
       color: #555;
       background-color: #fff;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
     main {
@@ -150,14 +159,44 @@
     </div>
   </header>
 
-  <!-- Navegación horizontal -->
-  <nav class="nav-horizontal">
-    <a href="gestion_menu.html">Gestión de menú</a>
-    <a href="historial_pedidos.html">Historial de pedidos</a>
-    <a href="gestion_usuarios.html" class="active">Gestión de usuarios</a>
-    <a href="promociones.html">Promociones</a>
-    <a href="login.html">Cerrar sesión</a>
-    <div class="user">Usuario</div>
+  <!-- Navbar responsive -->
+  <nav class="navbar navbar-expand-md navbar-light navbar-custom">
+    <div class="container">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Alternar navegación"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto flex-wrap">
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_menu.html">Gestión de menú</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="historial_pedidos.html">Historial de pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="gestion_usuarios.html">Gestión de usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="promociones.html">Promociones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Cerrar sesión</a>
+          </li>
+          <li class="nav-item">
+            <span class="user">Usuario</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
   <!-- Contenido principal -->
@@ -222,3 +261,4 @@
   ></script>
 </body>
 </html>
+```

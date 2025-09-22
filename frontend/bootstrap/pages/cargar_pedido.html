@@ -55,17 +55,16 @@
       font-size: 1.5rem;
     }
 
-    .nav-horizontal {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-      padding: 0.75rem 2rem;
+    .navbar-custom {
       background-color: var(--bg-color);
       border-bottom: 1px solid #ccc;
-      flex-wrap: wrap;
     }
 
-    .nav-horizontal a {
+    .navbar-custom .navbar-toggler {
+      border-color: var(--btn-bg);
+    }
+
+    .navbar-custom .navbar-nav .nav-link {
       text-decoration: none;
       font-weight: 500;
       color: #333;
@@ -73,21 +72,25 @@
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      transition: background-color 0.3s;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    .nav-horizontal a.active {
+    .navbar-custom .navbar-nav .nav-link.active {
       background-color: var(--btn-bg);
       color: var(--btn-text);
     }
 
-    .nav-horizontal .user {
+    .navbar-custom .navbar-nav .user {
+      display: block;
       font-weight: 500;
       color: #555;
       background-color: #fff;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
     main {
@@ -134,14 +137,36 @@
     </div>
   </header>
 
-  <!-- Navegación horizontal -->
-  <nav class="nav-horizontal">
-    <a href="dashboard_pedidos.html">Panel de pedidos</a>
-    <a href="cargar_pedido.html" class="active">Cargar pedidos</a>
-    <a href="stock.html">Stock</a>
-    <a href="gestion_clientes.html">Gestión de clientes</a>
-    <a href="login.html">Cerrar sesión</a>
-    <div class="user">Usuario</div>
+  <!-- Navegación responsive -->
+  <nav class="navbar navbar-expand-md navbar-light navbar-custom">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto flex-wrap">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard_pedidos.html">Panel de pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="cargar_pedido.html">Cargar pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="stock.html">Stock</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gestion_clientes.html">Gestión de clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Cerrar sesión</a>
+          </li>
+          <li class="nav-item">
+            <span class="user">Usuario</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
   <!-- Contenido principal -->
@@ -176,7 +201,7 @@
     </div>
   </main>
 
-  <!-- Bootstrap JS -->
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
