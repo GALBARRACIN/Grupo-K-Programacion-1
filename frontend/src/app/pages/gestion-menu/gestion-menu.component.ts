@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'app-gestion-menu',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './gestion-menu.component.html',
-  styleUrl: './gestion-menu.component.css'
+  styleUrls: ['./gestion-menu.component.css']
 })
-export class GestionMenuComponent {
-
-}
+export class GestionMenuComponent {}

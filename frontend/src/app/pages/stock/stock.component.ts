@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'app-stock',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './stock.component.html',
-  styleUrl: './stock.component.css'
+  styleUrls: ['./stock.component.css']
 })
-export class StockComponent {
-
-}
+export class StockComponent {}

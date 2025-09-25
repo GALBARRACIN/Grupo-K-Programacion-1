@@ -1,1 +1,65 @@
-<p>historial-pedidos works!</p>
+<main>
+    <!-- Buscador de pedidos -->
+    <div class="search-bar">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar pedido por cliente o fecha"
+      />
+    </div>
+  
+    <!-- Tabla de historial de pedidos -->
+    <div class="table-responsive">
+      <table class="table align-middle mb-0">
+        <thead>
+          <tr>
+            <th scope="col">Pedido</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Total</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#001</td>
+            <td>Juan Pérez</td>
+            <td>2025-09-07</td>
+            <td>$2050</td>
+            <td><span class="badge">Entregado</span></td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm">
+                Ver detalle
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>#002</td>
+            <td>María Gómez</td>
+            <td>2025-09-08</td>
+            <td>$1200</td>
+            <td><span class="badge">Listo</span></td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm">
+                Ver detalle
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>#003</td>
+            <td>Carlos Ruiz</td>
+            <td>2025-09-08</td>
+            <td>$950</td>
+            <td><span class="badge">En preparación</span></td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm">
+                Ver detalle
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  

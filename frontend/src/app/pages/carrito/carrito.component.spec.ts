@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule }      from '@angular/router/testing';
 
 import { CarritoComponent } from './carrito.component';
 
@@ -8,16 +9,18 @@ describe('CarritoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CarritoComponent]
-    })
-    .compileComponents();
+      imports: [
+        RouterTestingModule,
+        CarritoComponent
+      ]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CarritoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create carrito component', () => {
     expect(component).toBeTruthy();
   });
 });

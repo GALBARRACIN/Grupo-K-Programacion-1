@@ -1,0 +1,19 @@
+:host {
+    display: block;
+    margin-top: auto;
+  }
+  
+  footer {
+    background-color: var(--bg-color);
+    border-top: 2px solid var(--btn-bg);
+  }
+  
+  .footer-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  

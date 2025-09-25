@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule }  from '@angular/forms';
 
 @Component({
+  standalone: true,
   selector: 'app-cargar-pedido',
-  imports: [],
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './cargar-pedido.component.html',
-  styleUrl: './cargar-pedido.component.css'
+  styleUrls: ['./cargar-pedido.component.css']
 })
-export class CargarPedidoComponent {
-
-}
+export class CargarPedidoComponent {}

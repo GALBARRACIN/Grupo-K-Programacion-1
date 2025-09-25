@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule }      from '@angular/router/testing';
 
 import { GestionUsuariosComponent } from './gestion-usuarios.component';
 
@@ -8,16 +9,18 @@ describe('GestionUsuariosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GestionUsuariosComponent]
-    })
-    .compileComponents();
+      imports: [
+        RouterTestingModule,
+        GestionUsuariosComponent
+      ]
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(GestionUsuariosComponent);
+    fixture   = TestBed.createComponent(GestionUsuariosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create gestion-usuarios component', () => {
     expect(component).toBeTruthy();
   });
 });

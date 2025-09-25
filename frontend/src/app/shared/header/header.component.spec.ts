@@ -1,26 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule }      from '@angular/router/testing';
 
-import { EstadoPedidoComponent } from './estado-pedido.component';
+import { HeaderComponent }          from './header.component';
 
-describe('EstadoPedidoComponent', () => {
-  let component: EstadoPedidoComponent;
-  let fixture: ComponentFixture<EstadoPedidoComponent>;
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture:   ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        EstadoPedidoComponent
+        HeaderComponent
       ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EstadoPedidoComponent);
+    fixture   = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create estado-pedido component', () => {
+  it('should create header component', () => {
     expect(component).toBeTruthy();
   });
 });

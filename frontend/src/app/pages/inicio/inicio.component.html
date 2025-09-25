@@ -1,1 +1,79 @@
-<p>inicio works!</p>
+<div class="d-flex justify-content-end gap-3 mb-5">
+  <a routerLink="menu-cliente" class="btn btn-primary btn-lg">
+    MENÚ
+  </a>
+  <a routerLink="login" class="btn btn-primary btn-lg">
+    INICIAR SESIÓN
+  </a>
+</div>
+
+<div
+  id="carouselRotiseria"
+  class="carousel slide mx-auto"
+  data-bs-ride="carousel"
+  style="max-width: 800px;"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselRotiseria"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselRotiseria"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselRotiseria"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        src="/assets/img/platillo1.jpg"
+        class="d-block"
+        alt="Platillo 1"
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="/assets/img/platillo2.jpg"
+        class="d-block"
+        alt="Platillo 2"
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="/assets/img/platillo3.jpg"
+        class="d-block"
+        alt="Platillo 3"
+      />
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselRotiseria"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselRotiseria"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule }      from '@angular/router/testing';
 
 import { InicioComponent } from './inicio.component';
 
@@ -8,16 +9,18 @@ describe('InicioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InicioComponent]
-    })
-    .compileComponents();
+      imports: [
+        RouterTestingModule,
+        InicioComponent
+      ]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(InicioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create inicio component', () => {
     expect(component).toBeTruthy();
   });
 });

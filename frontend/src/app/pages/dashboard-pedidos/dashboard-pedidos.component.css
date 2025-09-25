@@ -1,0 +1,50 @@
+.search-bar {
+    max-width: 400px;
+    margin: 0 auto 2rem;
+  }
+  
+  .order-list .card {
+    background-color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+  
+  .order-list .card-header {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    font-weight: 500;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 0.75rem 1rem;
+  }
+  
+  .order-list .card-body {
+    padding: 1rem;
+  }
+  
+  .order-list ul {
+    padding-left: 1.2rem;
+    margin: 0;
+  }
+  
+  .order-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  .order-list .card-footer {
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .badge {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    font-size: 0.85rem;
+    padding: 0.4em 0.7em;
+  }
+  

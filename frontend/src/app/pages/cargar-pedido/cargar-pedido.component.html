@@ -1,1 +1,53 @@
-<p>cargar-pedido works!</p>
+<main>
+    <div class="form-box">
+      <h4>Cargar nuevo pedido</h4>
+      <form>
+        <div class="mb-3">
+          <label for="cliente" class="form-label">Nombre del cliente</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cliente"
+            placeholder="Ej: Juan Pérez"
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label for="producto" class="form-label">Producto</label>
+          <input
+            type="text"
+            class="form-control"
+            id="producto"
+            placeholder="Ej: Milanesa con papas"
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label for="cantidad" class="form-label">Cantidad</label>
+          <input
+            type="number"
+            class="form-control"
+            id="cantidad"
+            min="1"
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label for="observaciones" class="form-label">Observaciones</label>
+          <textarea
+            class="form-control"
+            id="observaciones"
+            rows="3"
+            placeholder="Ej: Sin sal, agregar bebida..."
+          ></textarea>
+        </div>
+  
+        <div class="text-center">
+          <button type="submit" class="btn btn-submit">
+            Registrar pedido
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+  

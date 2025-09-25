@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule }  from '@angular/forms';
 
 @Component({
+  standalone: true,
   selector: 'app-calificacion',
-  imports: [],
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './calificacion.component.html',
-  styleUrl: './calificacion.component.css'
+  styleUrls: ['./calificacion.component.css']
 })
-export class CalificacionComponent {
-
-}
+export class CalificacionComponent {}

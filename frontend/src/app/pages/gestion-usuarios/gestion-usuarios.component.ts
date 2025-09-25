@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'app-gestion-usuarios',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './gestion-usuarios.component.html',
-  styleUrl: './gestion-usuarios.component.css'
+  styleUrls: ['./gestion-usuarios.component.css']
 })
-export class GestionUsuariosComponent {
-
-}
+export class GestionUsuariosComponent {}

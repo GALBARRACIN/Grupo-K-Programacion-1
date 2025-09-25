@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'app-historial-pedidos',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './historial-pedidos.component.html',
-  styleUrl: './historial-pedidos.component.css'
+  styleUrls: ['./historial-pedidos.component.css']
 })
-export class HistorialPedidosComponent {
-
-}
+export class HistorialPedidosComponent {}

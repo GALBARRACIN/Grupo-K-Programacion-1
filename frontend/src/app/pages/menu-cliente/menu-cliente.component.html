@@ -1,1 +1,54 @@
-<p>menu-cliente works!</p>
+<main>
+    <!-- Buscador -->
+    <div class="search-bar">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar productos por nombre o categoría"
+      />
+    </div>
+  
+    <!-- Tarjetas de productos -->
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/assets/img/platillo1.jpg" alt="Platillo 1" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Milanesa con papas</h5>
+            <p class="card-text">$1200</p>
+            <button class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/assets/img/platillo2.jpg" alt="Platillo 2" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Empanadas surtidas</h5>
+            <p class="card-text">$850</p>
+            <button class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="card">
+          <img src="/assets/img/platillo3.jpg" alt="Platillo 3" />
+          <div class="card-body text-center">
+            <h5 class="card-title">Tarta de verdura</h5>
+            <p class="card-text">$950</p>
+            <button class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Botón de continuar -->
+    <div class="text-center mt-5">
+      <a routerLink="carrito" class="btn btn-primary btn-lg">
+        Ver carrito
+      </a>
+    </div>
+  </main>
+  

@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   selector: 'app-dashboard-pedidos',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './dashboard-pedidos.component.html',
-  styleUrl: './dashboard-pedidos.component.css'
+  styleUrls: ['./dashboard-pedidos.component.css']
 })
-export class DashboardPedidosComponent {
-
-}
+export class DashboardPedidosComponent {}

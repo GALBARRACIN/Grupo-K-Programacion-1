@@ -4,12 +4,12 @@ import { RouterLink }   from '@angular/router';
 
 @Component({
   standalone: true,
-  selector: 'app-inicio',
+  selector: 'app-header',
   imports: [
     CommonModule,
     RouterLink
   ],
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class InicioComponent {}
+export class HeaderComponent {}

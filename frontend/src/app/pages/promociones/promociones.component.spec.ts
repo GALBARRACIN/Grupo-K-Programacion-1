@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule }      from '@angular/router/testing';
+import { FormsModule }              from '@angular/forms';
 
-import { PromocionesComponent } from './promociones.component';
+import { PromocionesComponent }     from './promociones.component';
 
 describe('PromocionesComponent', () => {
   let component: PromocionesComponent;
@@ -8,16 +10,19 @@ describe('PromocionesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PromocionesComponent]
-    })
-    .compileComponents();
+      imports: [
+        RouterTestingModule,
+        FormsModule,
+        PromocionesComponent
+      ]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PromocionesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create promociones component', () => {
     expect(component).toBeTruthy();
   });
 });

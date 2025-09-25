@@ -1,0 +1,37 @@
+.search-bar {
+    max-width: 400px;
+    margin: 0 auto 2rem;
+  }
+  
+  .table-responsive {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+  }
+  
+  table {
+    margin: 0;
+  }
+  
+  thead th {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border-top: none;
+  }
+  
+  tbody tr {
+    background-color: #ffffff;
+  }
+  
+  .btn-outline-primary {
+    color: var(--btn-bg);
+    border-color: var(--btn-bg);
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border-color: var(--btn-bg);
+  }
+  

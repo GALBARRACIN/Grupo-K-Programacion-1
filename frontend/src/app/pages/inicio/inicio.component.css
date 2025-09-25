@@ -1,0 +1,23 @@
+.btn-primary {
+    background-color: var(--btn-bg);
+    border-color: var(--btn-bg);
+    color: var(--btn-text);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--btn-hover);
+    border-color: var(--btn-hover);
+    color: var(--btn-text);
+  }
+  
+  .carousel {
+    margin-top: 2rem;
+  }
+  
+  .carousel img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  

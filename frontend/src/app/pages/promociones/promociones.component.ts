@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component }    from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule }  from '@angular/forms';
 
 @Component({
+  standalone: true,
   selector: 'app-promociones',
-  imports: [],
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './promociones.component.html',
-  styleUrl: './promociones.component.css'
+  styleUrls: ['./promociones.component.css']
 })
-export class PromocionesComponent {
-
-}
+export class PromocionesComponent {}

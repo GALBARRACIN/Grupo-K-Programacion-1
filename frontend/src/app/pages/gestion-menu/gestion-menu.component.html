@@ -1,1 +1,90 @@
-<p>gestion-menu works!</p>
+<main>
+    <!-- Buscador de productos -->
+    <div class="search-bar">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar producto por nombre o categoría"
+      />
+    </div>
+  
+    <!-- Tabla de productos -->
+    <div class="table-responsive">
+      <table class="table align-middle mb-0">
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Milanesa con papas</td>
+            <td>$1200</td>
+            <td>Plato principal</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Editar</button>
+              <button class="btn btn-outline-primary btn-sm">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Empanadas surtidas</td>
+            <td>$850</td>
+            <td>Entrada</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Editar</button>
+              <button class="btn btn-outline-primary btn-sm">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Tarta de verdura</td>
+            <td>$950</td>
+            <td>Vegetariano</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Editar</button>
+              <button class="btn btn-outline-primary btn-sm">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Formulario para agregar nuevo producto -->
+    <div class="form-agregar">
+      <h4>Agregar nuevo producto</h4>
+      <form>
+        <div class="mb-3">
+          <label for="nombreProducto" class="form-label">Nombre del producto</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombreProducto"
+            placeholder="Ej: Tarta de jamón y queso"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="fotoProducto" class="form-label">Foto del producto</label>
+          <input
+            type="file"
+            class="form-control"
+            id="fotoProducto"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="precioProducto" class="form-label">Precio</label>
+          <input
+            type="number"
+            class="form-control"
+            id="precioProducto"
+            placeholder="Ej: 950"
+          />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn">Agregar producto</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  
